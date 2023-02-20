@@ -1,0 +1,4 @@
+name: Minigame
+version: '${project.version}'
+main: com.specter.minigame
+api-version: 1.19
