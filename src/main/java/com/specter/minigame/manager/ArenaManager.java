@@ -17,7 +17,7 @@ public class ArenaManager {
     public ArenaManager(Minigame minigame) {
         FileConfiguration config = minigame.getConfig();
         for (String str : config.getConfigurationSection("arena.").getKeys(false)) {
-            arenas.add(new Arena(Integer.parseInt(str), new Location(
+            arenas.add(new Arena(minigame, Integer.parseInt(str), new Location(
                     Bukkit.getWorld(config.getString("arena." + str + ".world")),
                     config.getDouble("arena." + str + ".x"),
                     config.getDouble("arena." + str + ".y"),

@@ -3,6 +3,7 @@ package com.specter.minigame.instance;
 import com.specter.minigame.GameState;
 import com.specter.minigame.Minigame;
 import com.specter.minigame.manager.ConfigManager;
+import org.bukkit.ChatColor;
 import org.bukkit.scheduler.BukkitRunnable;
 
 public class Countdown extends BukkitRunnable {
@@ -32,7 +33,7 @@ public class Countdown extends BukkitRunnable {
         }
 
         if (countdownSeconds <= 10 || countdownSeconds % 15 == 0) {
-
+            arena.sendMessage(ChatColor.GREEN + "Game will start in " + countdownSeconds + " second" + (countdownSeconds == 1 ? "" : "s") + ".");
         }
 
         countdownSeconds--;

@@ -1,6 +1,7 @@
 package com.specter.minigame.instance;
 
 import com.specter.minigame.GameState;
+import com.specter.minigame.Minigame;
 import com.specter.minigame.manager.ConfigManager;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -17,19 +18,26 @@ public class Arena {
 
     private GameState state;
     private List<UUID> players;
+    private Countdown countdown;
 
-    public Arena(int id, Location spawn) {
+    public Arena(Minigame minigame, int id, Location spawn) {
         this.id = id;
         this.spawn = spawn;
 
         this.state = GameState.RECRUITING;
         this.players = new ArrayList<>();
+        this.countdown = new Countdown(minigame, this);
     }
     /* TOOLS */
 
     public void sendMessage(String message) {
         for (UUID uuid : players) {
             Bukkit.getPlayer(uuid).sendMessage(message);
+        }
+    }
+    public void sendTitle(String title, String subtitle) {
+        for (UUID uuid : players) {
+            Bukkit.getPlayer(uuid).sendTitle(title, subtitle);
         }
     }
 
