@@ -19,7 +19,7 @@ public class GameListener implements Listener {
         Arena arena = minigame.getArenaManager().getArena(e.getPlayer());
         if (arena != null) {
             if (arena.getState().equals(GameState.LIVE)) {
-                arena.getGame().addPoint(e.getPlayer());
+                arena.getGame().addPoints(e.getPlayer());
             }
         }
 
