@@ -3,6 +3,7 @@ package com.specter.minigame.instance;
 import com.specter.minigame.GameState;
 import com.specter.minigame.Minigame;
 import com.specter.minigame.manager.ConfigManager;
+import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
@@ -50,13 +51,13 @@ public class Arena {
             }
             players.clear();
         }
+        sendTitle("", "");
         state = GameState.RECRUITING;
         countdown.cancel();
         countdown = new Countdown(minigame, this);
         game = new Game(this);
 
     }
-
 
 
     /* TOOLS */
@@ -86,6 +87,18 @@ public class Arena {
     public void removePlayer(Player player) {
         players.remove(player.getUniqueId());
         player.teleport(ConfigManager.getLobbySpawn());
+        player.sendTitle("", "");
+
+        if (state == GameState.COUNTDOWN && players.size() < ConfigManager.getRequiredPlayers()) {
+            sendMessage(ChatColor.RED + "There is not enough players. Countdown stopped!");
+            reset(false);
+            return;
+        }
+
+        if (state == GameState.LIVE && players.size() < ConfigManager.getRequiredPlayers()) {
+            sendMessage(ChatColor.RED + "The game has ended as two many players have left!");
+            reset(false);
+        }
 
     }
     /* INFO */

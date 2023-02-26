@@ -17,14 +17,9 @@ public class GameListener implements Listener {
     public void onBlockBreak(BlockBreakEvent e) {
 
         Arena arena = minigame.getArenaManager().getArena(e.getPlayer());
-        if (arena != null) {
-            if (arena.getState().equals(GameState.LIVE)) {
-                arena.getGame().addPoints(e.getPlayer());
-            }
+        if (arena != null && arena.getState().equals(GameState.LIVE)) {
+            arena.getGame().addPoints(e.getPlayer());
         }
-
-
-
 
     }
 
