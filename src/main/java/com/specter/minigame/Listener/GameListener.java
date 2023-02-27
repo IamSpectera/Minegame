@@ -10,9 +10,7 @@ import org.bukkit.event.block.BlockBreakEvent;
 public class GameListener implements Listener {
 
     private Minigame minigame;
-    public GameListener(Minigame minigame) {
-        this.minigame = minigame;
-    }
+    public GameListener(Minigame minigame) { this.minigame = minigame; }
     @EventHandler
     public void onBlockBreak(BlockBreakEvent e) {
 

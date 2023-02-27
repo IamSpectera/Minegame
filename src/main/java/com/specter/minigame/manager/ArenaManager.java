@@ -16,17 +16,16 @@ public class ArenaManager {
 
     public ArenaManager(Minigame minigame) {
         FileConfiguration config = minigame.getConfig();
-        for (String str : config.getConfigurationSection("arena.").getKeys(false)) {
+        for (String str : config.getConfigurationSection("arenas").getKeys(false)) {
             arenas.add(new Arena(minigame, Integer.parseInt(str), new Location(
                     Bukkit.getWorld(config.getString("arena." + str + ".world")),
-                    config.getDouble("arena." + str + ".x"),
-                    config.getDouble("arena." + str + ".y"),
-                    config.getDouble("arena." + str + ".z"),
-                    (float) config.getDouble("arena." + str + ".yaw"),
-                    (float) config.getDouble("arena." + str + ".pitch"))));
+                    config.getDouble("arenas." + str + ".x"),
+                    config.getDouble("arenas." + str + ".y"),
+                    config.getDouble("arenas." + str + ".z"),
+                    (float) config.getDouble("arenas." + str + ".yaw"),
+                    (float) config.getDouble("arenas." + str + ".pitch"))));
 
         }
-
     }
 
     public List<Arena> getArenas() { return arenas; }

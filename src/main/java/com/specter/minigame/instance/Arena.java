@@ -25,7 +25,6 @@ public class Arena {
     private Game game;
 
     public Arena(Minigame minigame, int id, Location spawn) {
-
         this.minigame = minigame;
 
         this.id = id;
@@ -39,9 +38,7 @@ public class Arena {
 
     /* GAME */
 
-    public void start() {
-        game.start();
-    }
+    public void start() { game.start(); }
 
     public void reset(boolean kickPlayers) {
         if (kickPlayers) {

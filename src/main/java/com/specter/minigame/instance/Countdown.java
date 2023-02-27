@@ -10,8 +10,8 @@ public class Countdown extends BukkitRunnable {
 
     private Minigame minigame;
     private Arena arena;
-
     private int countdownSeconds;
+
     public Countdown(Minigame minigame, Arena arena) {
         this.minigame = minigame;
         this.arena = arena;
@@ -29,6 +29,7 @@ public class Countdown extends BukkitRunnable {
         if (countdownSeconds == 0) {
             cancel();
             arena.start();
+            arena.sendTitle("", "");
             return;
         }
 

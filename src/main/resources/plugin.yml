@@ -1,6 +1,6 @@
 name: Minigame
 version: '${project.version}'
-main: com.specter.minigame
+main: com.specter.minigame.Minigame
 api-version: 1.19
 commands:
   arena:
