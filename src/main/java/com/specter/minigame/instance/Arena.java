@@ -74,6 +74,7 @@ public class Arena {
 
     public void addPlayer(Player player) {
         players.add(player.getUniqueId());
+        player.teleport(spawn);
 
         if (state.equals(GameState.RECRUITING) && players.size() >= ConfigManager.getRequiredPlayers()) {
             countdown.start();

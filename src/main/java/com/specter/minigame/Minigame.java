@@ -20,6 +20,8 @@ public final class Minigame extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new GameListener(this), this);
 
         getCommand("arena").setExecutor(new ArenaCommand(this));
+
+        System.out.println(this.getArenaManager().getArenas());
     }
 
     public ArenaManager getArenaManager() { return arenaManager; }
